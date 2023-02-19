@@ -1,0 +1,21 @@
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        stream-out-0:
+          destination: myExchange
+          group: myQueue
+      rabbit:
+        bindings:
+          stream-out-0:
+            producer:
+              routingKeyExpression: "'myKey'"
+              bindQueue: true
+              declareExchange: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: "admin"
+    password: "admin"
+
